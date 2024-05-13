@@ -114,10 +114,10 @@ bool LinkedList::isFull() {
 void LinkedList::printList() {
     Node* ptr = head;
 
-    while(head != NULL){
+    while(ptr != NULL){
 
-	cout<< head->data;
-	head = head->next;
+	cout<< ptr->data;
+	ptr = ptr->next;
     }
 	cout<<endl;
 };

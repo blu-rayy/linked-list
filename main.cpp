@@ -1,121 +1,142 @@
 #include <iostream>
-#include "data.h"
-#include <cctype>   
 #include <string>
-#include <cstring>
-#include <algorithm>
-
-int intValidation(string prompt);
+#include <cstdlib>
+#include "data.h"
 
 using namespace std;
 
-    int main() {
-        LinkedList list;
-        int choice, position, data;
-        
-        do {
-            cout << "\nLIST OPERATIONS:\n";
-            cout << "1. Insert at beginning\n";
-            cout << "2. Insert at end\n";
-            cout << "3. Insert at position\n";
-            cout << "4. Remove at position\n";
-            cout << "5. Search\n";
-            cout << "6. Display list\n";
-            cout << "7. Get size\n";
-            cout << "8. Check if list is empty\n";
-            cout << "9. Check if list is full\n";
-            cout << "0. Exit\n";
-            
-            string prompt = "Enter your choice: ";
-            intValidation(prompt);
-             
-            switch (choice) {
-            case 1:
-                cout << "Enter data to be inserted at beginning: ";
-                cin >> data;
-                list.insertAtBeginning(data);
-                break;
+int intValidation(string prompt);
 
-            case 2:
-                cout << "Enter data to be inserted at end: ";
-                cin >> data;
-                list.insert(data);
-                break;
+int main() {
+    LinkedList list;
+    int choice, position, data;
 
-            case 3:
-                cout << "Enter data to be inserted: ";
-                cin >> data;
-                cout << "Enter position to insert data: ";
-                cin >> position;
-                list.insertAfter(data, position);
-                break;
+    do {
+        cout << "\nLIST OPERATIONS:\n";
+        cout << "1. Insert at beginning\n";
+        cout << "2. Insert at end\n";
+        cout << "3. Insert at position\n";
+        cout << "4. Remove at position\n";
+        cout << "5. Search\n";
+        cout << "6. Display list\n";
+        cout << "7. Get size\n";
+        cout << "8. Check if list is empty\n";
+        cout << "9. Check if list is full\n";
+        cout << "0. Exit\n";
 
-            case 4:
-                cout << "Enter position of data to be removed: ";
-                cin >> position;
-                list.removeAt(position);
-                break;
+        string prompt = "Enter your choice: ";
+        choice = intValidation(prompt);
 
-            case 5:
-                cout << "Enter data to search: ";
-                cin >> data;
-                if (list.search(data))
-                    cout << "Element found in the list\n";
-                else
-                    cout << "Element not found in the list\n";
-                break;
+        switch (choice) {
+        case 1:
+            prompt = "Enter data to be inserted at beginning: ";
+            data = intValidation(prompt);
+            list.insertAtBeginning(data);
+            cout << "\x1b[32m \nData input succesful! \x1b[0m" << endl;
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            case 6:
-                cout << "Elements in the list are: ";
-                list.printList();
-                break;
+        case 2:
+            prompt = "Enter data to be inserted at end: ";
+            choice = intValidation(prompt);
+            list.insert(data);
+            cout << "\x1b[32m \nData input succesful! \x1b[0m" << endl;
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            case 7:
-                cout << "Size of the list is: " << list.getSize() << endl;
-                break;
+        case 3:
+            prompt = "Enter data to be inserted: ";
+            data = intValidation(prompt);
+            prompt = "Enter position to insert data: ";
+            position = intValidation(prompt);
+            list.insertAfter(data, position);
+            cout << "\x1b[32m \nData input succesful at position" << "position!\x1b[0m" << endl;
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            case 8:
-                if (list.isEmpty())
-                    cout << "List is empty\n";
-                else
-                    cout << "List is not empty\n";
-                break;
+        case 4:
+            prompt = "Enter position of data to be removed: ";
+            position = intValidation(prompt);
+            list.removeAt(position);
+            cout << "\x1b[32m \nData Removed!\x1b[0m" << endl;
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            case 9:
-                if (list.isFull())
-                    cout << "List is full\n";
-                else
-                    cout << "List is not full\n";
-                break;
+        case 5:
+            prompt = "Enter data to search: ";
+            data = intValidation(prompt);
+            if (list.search(data))
+                cout << "Element found in the list\n";
+            else
+                cout << "Element not found in the list\n";
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            case 0:
-                cout << "Exiting...\n";
-                break;
+        case 6:
+            cout << "Elements in the list are: ";
+            list.printList();
+            system("PAUSE");
+            system("CLS");
+            break;
 
-            default:
-                cout << "Invalid choice, please try again\n";
-                break;
-            }
-        } while (choice != 0);
+        case 7:
+            cout << "Size of the list is: " << list.getSize() << endl;
+            system("PAUSE");
+            system("CLS");
+            break;
 
-        return 0;
-    }
+        case 8:
+            if (list.isEmpty())
+                cout << "List is empty\n";
+            else
+                cout << "List is not empty\n";
+            system("PAUSE");
+            system("CLS");
+            break;
 
-    int intValidation(string prompt) {
-        int choice;
-        string s_choice;
+        case 9:
+            if (list.isFull())
+                cout << "List is full\n";
+            else
+                cout << "List is not full\n";
+            system("PAUSE");
+            system("CLS");
+            break;
 
-        do {
-            cout << prompt;
-            getline(cin, s_choice);
+        case 0:
+            cout << "Exiting...\n";
+            break;
 
-            if (s_choice.length() != 1 || !all_of(s_choice.begin(), s_choice.end(), ::isdigit)) {
-                cout << "\x1b[31m\nInvalid Book ID! Please enter a 6-digit integer.\x1b[0m" << endl;
-                cin.clear();
-            }
-        } while (s_choice.length() != 1 || !all_of(s_choice.begin(), s_choice.end(), ::isdigit));
+        default:
+            cout << "Invalid choice, please try again\n";
+            break;
+        }
+    } while (choice != 0);
 
-        choice = stoi(s_choice);
+    return 0;
+}
 
-        return choice;
-    }
+int intValidation(string prompt) {
+    int choice;
+    string s_choice;
+
+    do {
+        cout << prompt;
+        getline(cin, s_choice);
+
+        if (!isdigit(s_choice[0])) {
+            cout << "\x1b[31m\nInvalid input! Please enter a single digit.\x1b[0m\n";
+            cin.clear();
+        }
+        else {
+            choice = s_choice[0] - '0';  // Convert char to int
+        }
+    } while (!isdigit(s_choice[0]));
+
+    return choice;
+}
