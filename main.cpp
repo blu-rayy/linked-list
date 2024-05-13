@@ -24,11 +24,12 @@ int main() {
         cout << "9. Check if list is full\n";
         cout << "0. Exit\n";
 
-        string prompt = "\nEnter your choice: ";
+        string prompt = "Enter your choice: ";
         choice = intValidation(prompt);
 
         switch (choice) {
         case 1:
+            {
             prompt = "Enter data to be inserted at beginning: ";
             data = intValidation(prompt);
             list.insertAtBeginning(data);
@@ -36,17 +37,21 @@ int main() {
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 2:
+            {
             prompt = "Enter data to be inserted at end: ";
-            choice = intValidation(prompt);
+            data = intValidation(prompt);
             list.insert(data);
             cout << "\x1b[32m \nData input succesful! \x1b[0m" << endl;
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 3:
+            {
             prompt = "Enter data to be inserted: ";
             data = intValidation(prompt);
             prompt = "Enter position to insert data: ";
@@ -56,8 +61,10 @@ int main() {
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 4:
+            {
             prompt = "Enter position of data to be removed: ";
             position = intValidation(prompt);
             list.removeAt(position);
@@ -65,8 +72,10 @@ int main() {
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 5:
+            {
             prompt = "Enter data to search: ";
             data = intValidation(prompt);
             if (list.search(data))
@@ -76,21 +85,27 @@ int main() {
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 6:
+            {
             cout << "Elements in the list are: ";
             list.printList();
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 7:
+            {
             cout << "Size of the list is: " << list.getSize() << endl;
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 8:
+            {
             if (list.isEmpty())
                 cout << "List is empty\n";
             else
@@ -98,24 +113,31 @@ int main() {
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 9:
-            if (list.isFull())
+            {
+            if (!list.isFull())
                 cout << "List is full\n";
             else
                 cout << "List is not full\n";
             system("PAUSE");
             system("CLS");
             break;
+            }
 
         case 0:
+            {
             cout << "Exiting...\n";
             break;
-
+            }
         default:
+            {
             cout << "Invalid choice, please try again\n";
             break;
+            }
         }
+
     } while (choice != 0);
 
     return 0;
@@ -134,7 +156,7 @@ int intValidation(string prompt) {
             cin.clear();
         }
         else {
-            choice = stoi(s_choice);
+            choice = stoi(s_choice);  // Convert char to int
         }
     } while (!isdigit(s_choice[0]));
 
