@@ -24,7 +24,7 @@ int main() {
         cout << "9. Check if list is full\n";
         cout << "0. Exit\n";
 
-        string prompt = "Enter your choice: ";
+        string prompt = "\6Enter your choice: ";
         choice = intValidation(prompt);
 
         switch (choice) {
