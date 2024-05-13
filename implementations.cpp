@@ -51,7 +51,7 @@ void LinkedList:: insert(int val) {
 }
 
 // Removes the element at a specified location from a non-empty list
-void removeAt(int pos) {
+void LinkedList::removeAt(int pos) {
     Node* temp1 = head;
     if (pos == 1) {
         head = temp1->next;
@@ -67,6 +67,7 @@ void removeAt(int pos) {
 }
 
 // Searches for an element in the list
+<<<<<<< HEAD
 bool search(int val) {
     Node *ptr = head;
     
@@ -77,6 +78,10 @@ bool search(int val) {
 		ptr = ptr->next;
 	}
 	return false;
+=======
+bool LinkedList::search(int val) {
+    //TODO
+>>>>>>> 09a721f9d3710ad2cf3c550f30a98c0b090ea4eb
 }
 
 // Returns the number of elements in the list
@@ -88,14 +93,20 @@ int LinkedList::getSize(){
 		size++;
 		ptr = ptr->next;
 	}
+<<<<<<< HEAD
+=======
+
+    return size;
+>>>>>>> 09a721f9d3710ad2cf3c550f30a98c0b090ea4eb
 }
 
 // Returns true if the list is empty, otherwise returns false
-bool isEmpty() {
+bool LinkedList::isEmpty() {
     return head == NULL;
 }
 
 // Returns true if the list is full, otherwise returns false
+<<<<<<< HEAD
 bool isFull() {
     
 }
@@ -103,4 +114,13 @@ bool isFull() {
 // Displays the elements in the list
 void printList() {
     
+=======
+bool LinkedList::isFull() {
+    //TODO
+}
+
+// Displays the elements in the list
+void LinkedList::printList() {
+    //TODO
+>>>>>>> 09a721f9d3710ad2cf3c550f30a98c0b090ea4eb
 };
