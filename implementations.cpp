@@ -2,13 +2,15 @@
 #include "data.h"
 using namespace std;
 
-// Inserts an element at the beginning of the list
-void insertAtBeginning(int val) {
-    //TODO
-}
+void LinkedList:: insertAtBeginning(int val) {
+    	Node *newNode = new Node;
+    	newNode->data = val;
+    	newNode->next = head;
+    	
+    	head = newNode;
+    }
 
-// Inserts an element at a specific position
-void insertAfter(int val, int pos) {
+void LinkedList:: insertAfter(int val,int pos) {
     Node* temp = head;
     for (int i = 1; i < pos; i++) {
         if (temp == NULL) {
@@ -18,7 +20,7 @@ void insertAfter(int val, int pos) {
     }
     Node* newNode = new Node;
     newNode->data = val;
-    if (temp == NULL) { // If position is at the end of the list
+    if(temp == NULL) { // If position is at the end of the list
         newNode->next = NULL;
         Node* last = head;
         while (last->next != NULL) {
@@ -32,22 +34,20 @@ void insertAfter(int val, int pos) {
     }
 }
 
-
-// Inserts an element at the end of the list
-void insert(int val) {
-    Node* newNode = new Node;
-    newNode->data = val;
-    newNode->next = NULL;
-    if (head == NULL) {
-        head = newNode;
-    }
-    else {
-        Node* temp = head;
-        while (temp->next != NULL) {
-            temp = temp->next;
+void LinkedList:: insert(int val) {
+        Node* newNode = new Node;
+        newNode->data = val;
+        newNode->next = NULL;
+        if (head == NULL) {
+            head = newNode;
         }
-        temp->next = newNode;
-    }
+        else {
+            Node* temp = head;
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
 }
 
 // Removes the element at a specified location from a non-empty list
@@ -68,12 +68,26 @@ void removeAt(int pos) {
 
 // Searches for an element in the list
 bool search(int val) {
-    //TODO
+    Node *ptr = head;
+    
+    while (ptr != NULL){
+		if (ptr->data == val){
+			return true;
+		}
+		ptr = ptr->next;
+	}
+	return false;
 }
 
 // Returns the number of elements in the list
-int getSize() {
-    //TODO
+int LinkedList::getSize(){
+	int size = 0;
+	Node *ptr = head;
+	
+	while (ptr != NULL){
+		size++;
+		ptr = ptr->next;
+	}
 }
 
 // Returns true if the list is empty, otherwise returns false
@@ -83,10 +97,10 @@ bool isEmpty() {
 
 // Returns true if the list is full, otherwise returns false
 bool isFull() {
-    //TODO
+    
 }
 
 // Displays the elements in the list
 void printList() {
-    //TODO
+    
 };
