@@ -24,7 +24,7 @@ int main() {
         cout << "9. Check if list is full\n";
         cout << "0. Exit\n";
 
-        string prompt = "Enter your choice: ";
+        string prompt = "\nEnter your choice: ";
         choice = intValidation(prompt);
 
         switch (choice) {
@@ -134,7 +134,7 @@ int intValidation(string prompt) {
             cin.clear();
         }
         else {
-            choice = s_choice[0] - '0';  // Convert char to int
+            choice = stoi(s_choice);
         }
     } while (!isdigit(s_choice[0]));
 

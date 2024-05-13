@@ -1,9 +1,7 @@
 #include<iostream>
-#include "data.h"
-#include <cctype>   
 #include <string>
-#include <cstring>
-#include <algorithm>
+#include "data.h"
+
 using namespace std;
 
 void LinkedList:: insertAtBeginning(int val) {
@@ -112,12 +110,15 @@ bool LinkedList::isFull() {
 
 // Displays the elementsin the list
 void LinkedList::printList() {
+
     Node* ptr = head;
-
-    while(ptr != NULL){
-
-	cout<< ptr->data;
-	ptr = ptr->next;
+    if (head == NULL) { cout << "The List is empty!" << endl; }
+    else {
+        ptr = head;
+        while (ptr) { //while nodePtr is not equal to NULL
+            cout << ptr->data << " ";
+            ptr = ptr->next;
+        }
+        cout << endl;
     }
-	cout<<endl;
-};
+}
